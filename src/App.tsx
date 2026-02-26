@@ -14,6 +14,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         return onAuthStateChanged(auth, (user) => {
+            console.log("Firestore Project ID:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
             setUserAuthenticated(user)
             setIsLoading(false);
         })
