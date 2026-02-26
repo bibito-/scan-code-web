@@ -8,11 +8,20 @@ import {useEffect, useState} from "react";
 import {onAuthStateChanged, type User} from "@firebase/auth"
 import {auth} from "./firebase.ts";
 import Loading from "./components/Loading.tsx";
+import scannedCodeRepository from "./repository/scannedCodeRepository.ts";
 
 function App() {
     const [userAuthenticated, setUserAuthenticated] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
+        try {
+            scannedCodeRepository.fetchAllGroups().then((result) => {
+                console.log(`data: ')`, result)
+            })
+        } catch (e) {
+            console.error("firestore fetch error:", e)
+        }
+
         return onAuthStateChanged(auth, (user) => {
             console.log("Firestore Project ID:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
             console.log("Auth User ID:", auth.currentUser?.uid);
@@ -22,7 +31,6 @@ function App() {
         })
     }, [])
     if (isLoading) {
-        console.log("userAuthenticated");
         return <Loading/>
     }
     return (
