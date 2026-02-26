@@ -23,7 +23,7 @@ function App() {
         return <Loading/>
     }
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={"/scan-code-web"}>
             <Header authenticatedUser={userAuthenticated}/>
             <Routes>
                 <Route path="/" element={userAuthenticated ? <Home/> : <Login/>}/>
