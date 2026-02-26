@@ -14,20 +14,23 @@ function App() {
     const [userAuthenticated, setUserAuthenticated] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-        try {
-            scannedCodeRepository.fetchAllGroups().then((result) => {
-                console.log(`data: ')`, result)
-            })
-        } catch (e) {
-            console.error("firestore fetch error:", e)
-        }
-
         return onAuthStateChanged(auth, (user) => {
             console.log("Firestore Project ID:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
             console.log("Auth User ID:", auth.currentUser?.uid);
             console.log("Is Anonymous:", auth.currentUser?.isAnonymous);
             setUserAuthenticated(user)
             setIsLoading(false);
+            scannedCodeRepository.fetchAllGroups()
+                .then((result) => {
+                    console.log("Success! Data:", result);
+                    if (result && result.length === 0) {
+                        console.warn("通信は成功しましたが、データが0件です。コレクション名や権限（ルール）を確認してください。");
+                    }
+                })
+                .catch((error) => {
+                    // もしドメイン制限や権限エラーがあれば、ここで捕まえられます
+                    console.error("Firestore Fetch Error:", error.code, error.message);
+                });
         })
     }, [])
     if (isLoading) {
