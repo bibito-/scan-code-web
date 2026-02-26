@@ -15,6 +15,8 @@ function App() {
     useEffect(() => {
         return onAuthStateChanged(auth, (user) => {
             console.log("Firestore Project ID:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
+            console.log("Auth User ID:", auth.currentUser?.uid);
+            console.log("Is Anonymous:", auth.currentUser?.isAnonymous);
             setUserAuthenticated(user)
             setIsLoading(false);
         })
