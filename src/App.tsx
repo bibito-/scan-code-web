@@ -18,6 +18,7 @@ function App() {
             console.log("Firestore Project ID:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
             console.log("Auth User ID:", auth.currentUser?.uid);
             console.log("Is Anonymous:", auth.currentUser?.isAnonymous);
+            // force push
             setUserAuthenticated(user)
             setIsLoading(false);
             scannedCodeRepository.fetchAllGroups()
