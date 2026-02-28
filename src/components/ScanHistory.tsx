@@ -12,9 +12,9 @@ const ScanHistory = ({groupID, items, onChecked, onDelete}: ScanHistoryProps) =>
     return (
         <ul className="flex flex-col gap-1">
             {items.map((item) => (
-                <li key={item.id} className="flex justify-between gap-10">
+                <li key={item.id} className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:gap-10">
                     {/*情報前部のチェックボックとコード情報部分*/}
-                    <div className="flex-1 justify-start items-center">
+                    <div className="flex flex-1 items-center">
                         <input id={`check-${item.id}`} className="mr-3" type="checkbox" checked={item.done} onChange={(e) => {
                             onChecked?.(groupID, item.id, e.target.checked)
                         }
@@ -22,7 +22,7 @@ const ScanHistory = ({groupID, items, onChecked, onDelete}: ScanHistoryProps) =>
                         <label htmlFor={`check-${item.id}`} className="text-[16px] text-gray-500 break-all">{item.code}</label>
                     </div>
                     {/*情報後部の追加情報（日付）と削除ボタン*/}
-                    <div className="col-span-2 flex justify-end items-center gap-2">
+                    <div className="flex justify-end items-center gap-2">
                         {/* tabular-numsにより表示状の日付の桁数を揃える */}
                         <span className="text-[16px] text-gray-700 tabular-nums">
                             {new Date(item.timestamp).toLocaleString("ja-JP")}

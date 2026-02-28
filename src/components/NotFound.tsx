@@ -3,7 +3,7 @@ const NotFound = () => {
         <main className="h-screen">
             <div className="container mx-auto ">
                 <div className="text-center">
-                    <h3 className="text-[100px] font-weight">404</h3>
+                    <h3 className="text-[60px] sm:text-[100px] font-bold">404</h3>
                     <p className="text-2xl">Not Found</p>
                 </div>
             </div>

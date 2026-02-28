@@ -12,13 +12,13 @@ const Home = () => {
     }
 
     return (
-        <main className="bg-amber-300  min-h-screen py-10 px-16">
+        <main className="bg-amber-300  min-h-screen py-10 px-4 sm:px-16">
             <div className="py-10">
                 <div className="text-center mb-8">
-                    <h2 className="lg:text-[30px] text-[20px] text-center mb-5">スキャン履歴</h2>
+                    <h2 className="text-[20px] sm:text-[30px] text-center mb-5">スキャン履歴</h2>
                 </div>
             </div>
-            <div className="py-16 px-12 bg-gray-50">
+            <div className="py-8 px-4 sm:py-16 sm:px-12 bg-gray-50">
                 <ScanGroupList groups={synchronizedData} onCodeEntryChecked= {toggleCodeLineCheck} onCodeEntryDeleted={onDeleteCodeLine} />
             </div>
         </main>
