@@ -1,5 +1,5 @@
 import {Trash2} from "lucide-react";
-import type {CodeList} from "../entity/CodeEntry.ts";
+import type {CodeList} from "../entity/firebase/CodeEntry.ts";
 
 export interface ScanHistoryProps {
     groupID: string;

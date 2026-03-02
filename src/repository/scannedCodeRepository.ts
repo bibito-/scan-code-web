@@ -1,7 +1,7 @@
 import {collection, collectionGroup, doc, getDocs, onSnapshot, orderBy, query, updateDoc} from "firebase/firestore";
 import {db} from "../firebase.ts";
-import type {CodeGroupEntry, CodeGroupEntryList} from "../entity/CodeGroupEntry.ts";
-import type {CodeList} from "../entity/CodeEntry.ts";
+import type {CodeGroupEntry, CodeGroupEntryList} from "../entity/firebase/CodeGroupEntry.ts";
+import type {CodeList} from "../entity/firebase/CodeEntry.ts";
 
 const scannedCodeRepository = {
     /**

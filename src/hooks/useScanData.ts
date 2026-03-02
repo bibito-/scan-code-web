@@ -1,8 +1,8 @@
 import {useEffect, useMemo, useState} from "react";
-import type {CodeGroupEntryList} from "../entity/CodeGroupEntry.ts";
+import type {CodeGroupEntryList} from "../entity/firebase/CodeGroupEntry.ts";
 import scannedCodeRepository from "../repository/scannedCodeRepository.ts";
 import {produce} from "immer";
-import type {CodeList} from "../entity/CodeEntry.ts";
+import type {CodeList} from "../entity/firebase/CodeEntry.ts";
 
 export const useScanData = () => {
     // 監視対象となる二つのリスト。combine予定。

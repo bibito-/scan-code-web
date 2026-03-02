@@ -1,5 +1,6 @@
 // import {CodeList} from "../components/ScanHistory.tsx";
 // import {produce} from "immer";
+import {useState} from "react";
 import {useScanData} from "../hooks/useScanData.ts";
 // import type {CodeGroupEntryList} from "../entity/CodeGroupEntry.ts";
 import ScanGroupList from "../components/ScanGroupList.tsx";
@@ -7,6 +8,8 @@ import Loading from "../components/Loading.tsx";
 
 const Home = () => {
     const { synchronizedData, loading, onDeleteCodeLine, toggleCodeLineCheck } = useScanData()
+    const [title] = useState("スキャン履歴")
+
     if (loading) {
         return <Loading />
     }
@@ -15,7 +18,7 @@ const Home = () => {
         <main className="bg-amber-300  min-h-screen py-10 px-4 sm:px-16">
             <div className="py-10">
                 <div className="text-center mb-8">
-                    <h2 className="text-[20px] sm:text-[30px] text-center mb-5">スキャン履歴</h2>
+                    <h2 className="text-[20px] sm:text-[30px] text-center mb-5">{title}</h2>
                 </div>
             </div>
             <div className="py-8 px-4 sm:py-16 sm:px-12 bg-gray-50">

@@ -1,4 +1,4 @@
-import type {CodeGroupEntryList} from "../entity/CodeGroupEntry.ts";
+import type {CodeGroupEntryList} from "../entity/firebase/CodeGroupEntry.ts";
 import ScanHistory from "./ScanHistory.tsx";
 
 // シグネチャーを宣言してるだけ
